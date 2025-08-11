@@ -13,5 +13,10 @@
 <ul>Check Box
   <li>TrueOrFalse : [[${dto.trueOrFalse}]]</li>
 </ul>
+<ul>Multi-Check Box
+  <div th:each="hobby : ${dto.getHobbies}">
+    <li th:text="${hobby}"></li>
+  </div>
+</ul>
 </body>
 </html>

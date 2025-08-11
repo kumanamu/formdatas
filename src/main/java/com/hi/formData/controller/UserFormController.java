@@ -23,6 +23,9 @@ public class UserFormController {
     @PostMapping("/form")
     public String form(@ModelAttribute("dto") FormDto dto,
                        Model model) {
+        for (String x : dto.getHobbies()) {
+            System.out.println(x);
+        }
         model.addAttribute("dto", dto);
         return "result";
     }
