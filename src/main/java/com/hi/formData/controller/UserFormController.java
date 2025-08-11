@@ -1,6 +1,9 @@
 package com.hi.formData.controller;
 
+import com.hi.formData.dto.Day;
 import com.hi.formData.dto.FormDto;
+import com.hi.formData.dto.Language;
+import jdk.jfr.MetadataDefinition;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,10 +29,16 @@ public class UserFormController {
         for (String x : dto.getHobbies()) {
             System.out.println(x);
         }
+        dto.setDay(Day.MON);
         model.addAttribute("dto", dto);
         return "result";
     }
 
+    //enum 타입 데이터를 modelAtrribute로 보냄
+@ModelAttribute("language")
+private Language [] languages(){
+        return Language.values();
+}
     // 메서드에 정의된 @ModelAttribute는
     // form html 호출할 때 같이 데이터를 보낼 때 사용
     @ModelAttribute("hobbies")

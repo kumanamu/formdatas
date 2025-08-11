@@ -34,7 +34,21 @@
                        th:value="${hobby.key}" class="form-check-input">
                 <label th:for="${#ids.prev('hobbies')}" th:text="${hobby.value}" class="form-check-label">
                 </label>
+
+
+
             </div>
+        </div>
+        <hr>
+        <div>좋아하는 프로그램밍 한개만 선택하기</div>
+        <div th:each="lang : ${language}" class="form-check form-check-inline">
+            <input type="radio" th:field="*{language}"
+            th:value="${lang.name()}" class="form-check-input">
+            <label th:for="${#ids.prev('language')}"
+            th:text="${lang.descrition}" class="form-check-label"></label>
+
+
+
         </div>
         <button class="btn btn-primary" type="submit">전송</button>
     </form>
